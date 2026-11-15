@@ -1,4 +1,5 @@
-import { initialState, stateSchema, type State } from "./model";
+import { initialState, migrateState, type State } from "./model";
+// The key predates schema version 2; the version field inside the save drives migration.
 export const STORAGE_KEY = "doroboty.prototype.v1";
 export const MAX_IMPORT_BYTES = 2_000_000;
 export interface StoragePort {
@@ -9,7 +10,7 @@ export function parseState(raw: string): State {
   if (new TextEncoder().encode(raw).length > MAX_IMPORT_BYTES)
     throw new Error("Plik jest za duży (maksymalnie 2 MB).");
   try {
-    return stateSchema.parse(JSON.parse(raw));
+    return migrateState(JSON.parse(raw));
   } catch {
     throw new Error(
       "Nieprawidłowy plik lub nieobsługiwana wersja danych. Dotychczasowy stan pozostaje bez zmian.",

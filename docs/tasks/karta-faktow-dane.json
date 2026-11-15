@@ -1,0 +1,431 @@
+{
+  "meta": {
+    "source": "applications.csv, publications.csv (case DoRoboty.ai, dane zamknięte 2026-09-30)",
+    "publicationId": "pub-003877",
+    "prepared": "2026-11-15",
+    "writingAssistantUsedByAll": true,
+    "note": "Imiona fikcyjne. Karty faktów to symulacja przygotowana ręcznie, nie wynik AI. Decyzja po rozmowie to historyczna decyzja hiring managera, nie ocena kandydata."
+  },
+  "company": {
+    "name": "Punkt Labs",
+    "industry": "oprogramowanie B2B",
+    "employeeBand": "1-20",
+    "city": "Poznań"
+  },
+  "recruiter": {
+    "name": "Ewa Malinowska",
+    "headline": "Rekruterka · Punkt Labs"
+  },
+  "job": {
+    "title": "Inżynier AI - wyszukiwanie w wiedzy zespołu",
+    "category": "Build",
+    "seniority": "mid",
+    "workMode": "biuro",
+    "contract": "UoP",
+    "location": "Poznań",
+    "salary": {
+      "min": 16500,
+      "max": 20500,
+      "basis": "brutto UoP"
+    },
+    "publishedAt": "2026-06-20",
+    "expiresAt": "2026-07-20",
+    "firstProject": "Uporządkowanie danych wejściowych i porównanie dwóch sposobów wyszukiwania w obszarze „wiedza zespołu”.",
+    "responsibility": "Własny komponent, ewaluacja i jego utrzymanie. Pozostałe API rozwija drugi inżynier.",
+    "mandate": "Wybór sposobu implementacji w ramach istniejącej usługi; zmiany architektury uzgadniane z zespołem.",
+    "team": "Osoba odpowiedzialna za operacje i inżynier. Na razie nie powstaje osobny dział AI.",
+    "process": "Rozmowa z rekruterem, następnie omówienie projektu z managerem."
+  },
+  "requirements": [
+    {
+      "id": "W1",
+      "label": "Własny komponent i ewaluacja",
+      "source": "ogłoszenie"
+    },
+    {
+      "id": "W2",
+      "label": "Utrzymanie po wdrożeniu",
+      "source": "ogłoszenie"
+    },
+    {
+      "id": "W3",
+      "label": "Wyjaśnianie decyzji i współpraca",
+      "source": "ogłoszenie"
+    },
+    {
+      "id": "W4",
+      "label": "Prowadzenie zadania między zespołami",
+      "source": "dodane w trakcie rekrutacji (27.06.2026)"
+    },
+    {
+      "id": "W5",
+      "label": "Warunki: biuro w Poznaniu, UoP",
+      "source": "ogłoszenie"
+    }
+  ],
+  "listNotes": [
+    "W3 (wyjaśnianie decyzji): wszystkie 10 osób pisze to samo zdanie „Mogę wyjaśnić swój zakres oraz pracę pozostałych osób”, więc karta tego nie rozróżnia.",
+    "W4 (dodane 27.06): nikt z 10 osób nie opisuje prowadzenia uzgodnień między zespołami."
+  ],
+  "task": "Z 10 zgłoszeń z wynikiem ≥75 wybierz 3 osoby, które zaprosisz na rozmowę.",
+  "candidates": [
+    {
+      "key": "K01",
+      "name": "Kamil Wróbel",
+      "seniority": "junior",
+      "matchScore": 76,
+      "summary": "Łączę praktyczną znajomość rozwiązań AI z pracą zespołową i orientacją na wynik w obszarze: wiedza zespołu.",
+      "projectArea": "wiedza zespołu",
+      "projectAreaMatchesJob": true,
+      "answer": "Łączę praktyczną znajomość rozwiązań AI z pracą zespołową i orientacją na wynik w obszarze: wiedza zespołu. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy.",
+      "profile": "Przykład mojej pracy dotyczy obszaru: wiedza zespołu. Zbierałem uwagi do prototypu i porządkowałem przykłady. Nie miałem odpowiedzialności za utrzymanie. Projekt miał ograniczony zakres i trwał kilka iteracji. Część początkowych pomysłów odłożyliśmy. Mogę wyjaśnić swój zakres oraz pracę pozostałych osób. Nie wszystkie materiały można opublikować.",
+      "portfolio": "Materiały: prezentacja demonstracji i przykłady odpowiedzi. Część danych jest prywatna. Mam wersję z usuniętymi nazwami klientów. Link: https://projekty.example/cand-007545/opis.",
+      "preferences": "Rozważam UoP i pracę hybrydową. Ważny jest dostęp do zespołu oraz jasne oczekiwania.",
+      "factCard": [
+        {
+          "requirement": "W1",
+          "kind": "luka",
+          "text": "Zbierał uwagi do prototypu i porządkował przykłady. Nie opisuje własnego komponentu ani ewaluacji.",
+          "source": "profil"
+        },
+        {
+          "requirement": "W2",
+          "kind": "luka",
+          "text": "„Nie miałem odpowiedzialności za utrzymanie.”",
+          "source": "profil"
+        }
+      ],
+      "factCardPreparedBy": "ręcznie w vaulcie, bez wiedzy o decyzji po rozmowie",
+      "historical": {
+        "postInterviewDecision": "reject",
+        "screeningDecision": "invite",
+        "firstInterviewAt": "2026-06-29T13:47:45+02:00",
+        "sourceApplicationId": "app-030050"
+      }
+    },
+    {
+      "key": "K02",
+      "name": "Piotr Lis",
+      "seniority": "senior",
+      "matchScore": 92,
+      "summary": "Moje doświadczenie w projektach AI odpowiada zadaniom opisanym w ogłoszeniu dla obszaru: wiedza zespołu.",
+      "projectArea": "wiedza zespołu",
+      "projectAreaMatchesJob": true,
+      "answer": "Moje doświadczenie w projektach AI odpowiada zadaniom opisanym w ogłoszeniu dla obszaru: wiedza zespołu. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy.",
+      "profile": "Przykład mojej pracy dotyczy obszaru: wiedza zespołu. Odpowiadałem za integrację modelu i analizę błędów. Nie prowadziłem całego projektu. Najpierw sprawdziliśmy mały fragment zadania. Dopiero później zdecydowaliśmy, co rozwijać. Mogę wyjaśnić swój zakres oraz pracę pozostałych osób. Nie wszystkie materiały można opublikować.",
+      "portfolio": "Materiały: fragment komponentu i wyniki testów. Za zgodą zespołu mogę udostępnić fragment materiału. Nie wysyłam danych klientów. Link: https://projekty.example/cand-009537/opis.",
+      "preferences": "Rozważam UoP i pracę hybrydową. Ważny jest dostęp do zespołu oraz jasne oczekiwania.",
+      "factCard": [
+        {
+          "requirement": "W1",
+          "kind": "potwierdza",
+          "text": "Odpowiadał za integrację modelu i analizę błędów. W portfolio fragment komponentu i wyniki testów.",
+          "source": "profil, portfolio"
+        },
+        {
+          "requirement": "W4",
+          "kind": "luka",
+          "text": "„Nie prowadziłem całego projektu.”",
+          "source": "profil"
+        },
+        {
+          "requirement": "W2",
+          "kind": "luka",
+          "text": "Brak informacji o utrzymaniu.",
+          "source": "profil"
+        }
+      ],
+      "factCardPreparedBy": "ręcznie w vaulcie, bez wiedzy o decyzji po rozmowie",
+      "historical": {
+        "postInterviewDecision": "reject",
+        "screeningDecision": "invite",
+        "firstInterviewAt": "2026-06-30T10:00:23+02:00",
+        "sourceApplicationId": "app-032439"
+      }
+    },
+    {
+      "key": "K03",
+      "name": "Michał Sowa",
+      "seniority": "mid",
+      "matchScore": 79,
+      "summary": "Moje doświadczenie w projektach AI odpowiada zadaniom opisanym w ogłoszeniu dla obszaru: katalog produktów.",
+      "projectArea": "katalog produktów",
+      "projectAreaMatchesJob": false,
+      "answer": "Moje doświadczenie w projektach AI odpowiada zadaniom opisanym w ogłoszeniu dla obszaru: katalog produktów. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy.",
+      "profile": "Przykład mojej pracy dotyczy obszaru: katalog produktów. Prowadziłem demo dla użytkowników. Kod komponentu i testy powstały po stronie inżynierów. Pracowaliśmy w kilkuosobowym zespole, równolegle z bieżącymi zadaniami operacyjnymi. Mogę wyjaśnić swój zakres oraz pracę pozostałych osób. Nie wszystkie materiały można opublikować.",
+      "portfolio": "Materiały: prezentacja demonstracji i przykłady odpowiedzi. Część danych jest prywatna. Mam wersję z usuniętymi nazwami klientów. Link: https://projekty.example/cand-006690/opis.",
+      "preferences": "Rozważam UoP i pracę hybrydową. Ważny jest dostęp do zespołu oraz jasne oczekiwania.",
+      "factCard": [
+        {
+          "requirement": "W1",
+          "kind": "luka",
+          "text": "Prowadził demo dla użytkowników. Kod komponentu i testy powstały po stronie inżynierów.",
+          "source": "profil"
+        },
+        {
+          "requirement": "W2",
+          "kind": "luka",
+          "text": "Brak informacji o utrzymaniu.",
+          "source": "profil"
+        }
+      ],
+      "factCardPreparedBy": "ręcznie w vaulcie, bez wiedzy o decyzji po rozmowie",
+      "historical": {
+        "postInterviewDecision": "reject",
+        "screeningDecision": "invite",
+        "firstInterviewAt": "2026-07-07T16:38:39+02:00",
+        "sourceApplicationId": "app-030582"
+      }
+    },
+    {
+      "key": "K04",
+      "name": "Jakub Kruk",
+      "seniority": "senior",
+      "matchScore": 76,
+      "summary": "W dotychczasowych projektach rozwijałem umiejętności potrzebne do wdrożeń AI, w tym w obszarze: wiedza zespołu.",
+      "projectArea": "wiedza zespołu",
+      "projectAreaMatchesJob": true,
+      "answer": "W dotychczasowych projektach rozwijałem umiejętności potrzebne do wdrożeń AI, w tym w obszarze: wiedza zespołu. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy.",
+      "profile": "Przykład mojej pracy dotyczy obszaru: wiedza zespołu. Sam przygotowałem moduł wyszukiwania oraz porównanie wyników na danych testowych; warstwę interfejsu robił zespół. Projekt miał ograniczony zakres i trwał kilka iteracji. Część początkowych pomysłów odłożyliśmy. Mogę wyjaśnić swój zakres oraz pracę pozostałych osób. Nie wszystkie materiały można opublikować.",
+      "portfolio": "Materiały: fragment komponentu i wyniki testów. Publiczny opis nie zawiera wszystkich szczegółów. Mogę omówić zakres na rozmowie. Link: https://projekty.example/cand-002889/opis.",
+      "preferences": "Preferuję remote i B2B. Chcę znać pierwszy projekt, osobę decyzyjną i zakres odpowiedzialności.",
+      "factCard": [
+        {
+          "requirement": "W1",
+          "kind": "potwierdza",
+          "text": "Sam przygotował moduł wyszukiwania i porównanie wyników na danych testowych. Interfejs robił zespół.",
+          "source": "profil"
+        },
+        {
+          "requirement": "W5",
+          "kind": "rozbieżność",
+          "text": "Preferuje pracę zdalną i B2B. Ogłoszenie: biuro w Poznaniu, UoP.",
+          "source": "preferencje"
+        },
+        {
+          "requirement": "W2",
+          "kind": "luka",
+          "text": "Brak informacji o utrzymaniu.",
+          "source": "profil"
+        }
+      ],
+      "factCardPreparedBy": "ręcznie w vaulcie, bez wiedzy o decyzji po rozmowie",
+      "historical": {
+        "postInterviewDecision": "continue",
+        "screeningDecision": "invite",
+        "firstInterviewAt": "2026-07-05T22:33:00+02:00",
+        "sourceApplicationId": "app-030355"
+      }
+    },
+    {
+      "key": "K05",
+      "name": "Paweł Dąbek",
+      "seniority": "mid",
+      "matchScore": 92,
+      "summary": "W dotychczasowych projektach rozwijałem umiejętności potrzebne do wdrożeń AI, w tym w obszarze: kontrola dokumentacji.",
+      "projectArea": "kontrola dokumentacji",
+      "projectAreaMatchesJob": false,
+      "answer": "W dotychczasowych projektach rozwijałem umiejętności potrzebne do wdrożeń AI, w tym w obszarze: kontrola dokumentacji. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy. Sprawdzałem gotowe odpowiedzi i opisywałem przypadki. Osobę od integracji wybierał kierownik.",
+      "profile": "Przykład mojej pracy dotyczy obszaru: kontrola dokumentacji. Sprawdzałem gotowe odpowiedzi i opisywałem przypadki. Osobę od integracji wybierał kierownik. Pracowaliśmy w kilkuosobowym zespole, równolegle z bieżącymi zadaniami operacyjnymi. Mogę wyjaśnić swój zakres oraz pracę pozostałych osób. Nie wszystkie materiały można opublikować.",
+      "portfolio": "Materiały: prezentacja demonstracji i przykłady odpowiedzi. Publiczny opis nie zawiera wszystkich szczegółów. Mogę omówić zakres na rozmowie. Link: https://projekty.example/cand-008841/opis.",
+      "preferences": "Forma umowy jest do ustalenia. Szukam pracy z konkretnym procesem i realnymi użytkownikami.",
+      "factCard": [
+        {
+          "requirement": "W1",
+          "kind": "luka",
+          "text": "Sprawdzał gotowe odpowiedzi i opisywał przypadki. Osobę od integracji wybierał kierownik.",
+          "source": "profil"
+        },
+        {
+          "requirement": "W2",
+          "kind": "luka",
+          "text": "Brak informacji o utrzymaniu.",
+          "source": "profil"
+        }
+      ],
+      "factCardPreparedBy": "ręcznie w vaulcie, bez wiedzy o decyzji po rozmowie",
+      "historical": {
+        "postInterviewDecision": "reject",
+        "screeningDecision": "invite",
+        "firstInterviewAt": "2026-07-19T12:18:52+02:00",
+        "sourceApplicationId": "app-032246"
+      }
+    },
+    {
+      "key": "K06",
+      "name": "Bartosz Czajka",
+      "seniority": "senior",
+      "matchScore": 81,
+      "summary": "W dotychczasowych projektach rozwijałem umiejętności potrzebne do wdrożeń AI, w tym w obszarze: obsługa zgłoszeń.",
+      "projectArea": "obsługa zgłoszeń",
+      "projectAreaMatchesJob": false,
+      "answer": "W dotychczasowych projektach rozwijałem umiejętności potrzebne do wdrożeń AI, w tym w obszarze: obsługa zgłoszeń. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy. Utrzymywałem komponent przetwarzania i przygotowałem scenariusze ewaluacji. Zespół decydował o produkcie.",
+      "profile": "Przykład mojej pracy dotyczy obszaru: obsługa zgłoszeń. Utrzymywałem komponent przetwarzania i przygotowałem scenariusze ewaluacji. Zespół decydował o produkcie. Projekt miał ograniczony zakres i trwał kilka iteracji. Część początkowych pomysłów odłożyliśmy. Mogę wyjaśnić swój zakres oraz pracę pozostałych osób. Nie wszystkie materiały można opublikować.",
+      "portfolio": "Materiały: fragment komponentu i wyniki testów. Publiczny opis nie zawiera wszystkich szczegółów. Mogę omówić zakres na rozmowie. Link: https://projekty.example/cand-008196/opis.",
+      "preferences": "Forma umowy jest do ustalenia. Szukam pracy z konkretnym procesem i realnymi użytkownikami.",
+      "factCard": [
+        {
+          "requirement": "W2",
+          "kind": "potwierdza",
+          "text": "Utrzymywał komponent przetwarzania.",
+          "source": "profil"
+        },
+        {
+          "requirement": "W1",
+          "kind": "potwierdza",
+          "text": "Przygotował scenariusze ewaluacji. W portfolio fragment komponentu i wyniki testów.",
+          "source": "profil, portfolio"
+        },
+        {
+          "requirement": "W4",
+          "kind": "luka",
+          "text": "„Zespół decydował o produkcie.”",
+          "source": "profil"
+        }
+      ],
+      "factCardPreparedBy": "ręcznie w vaulcie, bez wiedzy o decyzji po rozmowie",
+      "historical": {
+        "postInterviewDecision": "continue",
+        "screeningDecision": "invite",
+        "firstInterviewAt": "2026-07-05T05:47:45+02:00",
+        "sourceApplicationId": "app-029365"
+      }
+    },
+    {
+      "key": "K07",
+      "name": "Łukasz Szpak",
+      "seniority": "mid",
+      "matchScore": 92,
+      "summary": "Moje doświadczenie w projektach AI odpowiada zadaniom opisanym w ogłoszeniu dla obszaru: wiedza zespołu.",
+      "projectArea": "wiedza zespołu",
+      "projectAreaMatchesJob": true,
+      "answer": "Moje doświadczenie w projektach AI odpowiada zadaniom opisanym w ogłoszeniu dla obszaru: wiedza zespołu. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy. Przygotowywałem prompty i prezentację; implementację usługi wykonał drugi zespół.",
+      "profile": "Przykład mojej pracy dotyczy obszaru: wiedza zespołu. Przygotowywałem prompty i prezentację; implementację usługi wykonał drugi zespół. Pracowaliśmy w kilkuosobowym zespole, równolegle z bieżącymi zadaniami operacyjnymi. Mogę wyjaśnić swój zakres oraz pracę pozostałych osób. Nie wszystkie materiały można opublikować.",
+      "portfolio": "Materiały: prezentacja demonstracji i przykłady odpowiedzi. Część danych jest prywatna. Mam wersję z usuniętymi nazwami klientów. Link: https://projekty.example/cand-011091/opis.",
+      "preferences": "Preferuję remote i B2B. Chcę znać pierwszy projekt, osobę decyzyjną i zakres odpowiedzialności.",
+      "factCard": [
+        {
+          "requirement": "W1",
+          "kind": "luka",
+          "text": "Przygotowywał prompty i prezentację. Implementację usługi wykonał drugi zespół.",
+          "source": "profil"
+        },
+        {
+          "requirement": "W5",
+          "kind": "rozbieżność",
+          "text": "Preferuje pracę zdalną i B2B. Ogłoszenie: biuro w Poznaniu, UoP.",
+          "source": "preferencje"
+        }
+      ],
+      "factCardPreparedBy": "ręcznie w vaulcie, bez wiedzy o decyzji po rozmowie",
+      "historical": {
+        "postInterviewDecision": "reject",
+        "screeningDecision": "invite",
+        "firstInterviewAt": "2026-07-08T00:40:11+02:00",
+        "sourceApplicationId": "app-032947"
+      }
+    },
+    {
+      "key": "K08",
+      "name": "Rafał Jeż",
+      "seniority": "mid",
+      "matchScore": 77,
+      "summary": "W dotychczasowych projektach rozwijałem umiejętności potrzebne do wdrożeń AI, w tym w obszarze: dokumenty operacyjne.",
+      "projectArea": "dokumenty operacyjne",
+      "projectAreaMatchesJob": false,
+      "answer": "W dotychczasowych projektach rozwijałem umiejętności potrzebne do wdrożeń AI, w tym w obszarze: dokumenty operacyjne. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy. Sam przygotowałem moduł wyszukiwania oraz porównanie wyników na danych testowych; warstwę interfejsu robił zespół.",
+      "profile": "Przykład mojej pracy dotyczy obszaru: dokumenty operacyjne. Sam przygotowałem moduł wyszukiwania oraz porównanie wyników na danych testowych; warstwę interfejsu robił zespół. Projekt miał ograniczony zakres i trwał kilka iteracji. Część początkowych pomysłów odłożyliśmy. Mogę wyjaśnić swój zakres oraz pracę pozostałych osób. Nie wszystkie materiały można opublikować.",
+      "portfolio": "Materiały: fragment komponentu i wyniki testów. Publiczny opis nie zawiera wszystkich szczegółów. Mogę omówić zakres na rozmowie. Link: https://projekty.example/cand-010767/opis.",
+      "preferences": "Rozważam UoP i pracę hybrydową. Ważny jest dostęp do zespołu oraz jasne oczekiwania.",
+      "factCard": [
+        {
+          "requirement": "W1",
+          "kind": "potwierdza",
+          "text": "Sam przygotował moduł wyszukiwania i porównanie wyników na danych testowych. Interfejs robił zespół.",
+          "source": "profil, odpowiedź"
+        },
+        {
+          "requirement": "W2",
+          "kind": "luka",
+          "text": "Brak informacji o utrzymaniu.",
+          "source": "profil"
+        }
+      ],
+      "factCardPreparedBy": "ręcznie w vaulcie, bez wiedzy o decyzji po rozmowie",
+      "historical": {
+        "postInterviewDecision": "reject",
+        "screeningDecision": "invite",
+        "firstInterviewAt": "2026-06-29T16:11:46+02:00",
+        "sourceApplicationId": "app-031650"
+      }
+    },
+    {
+      "key": "K09",
+      "name": "Krzysztof Sikora",
+      "seniority": "junior",
+      "matchScore": 76,
+      "summary": "Moje doświadczenie w projektach AI odpowiada zadaniom opisanym w ogłoszeniu dla obszaru: dokumenty operacyjne.",
+      "projectArea": "dokumenty operacyjne",
+      "projectAreaMatchesJob": false,
+      "answer": "Moje doświadczenie w projektach AI odpowiada zadaniom opisanym w ogłoszeniu dla obszaru: dokumenty operacyjne. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy.",
+      "profile": "Przykład mojej pracy dotyczy obszaru: dokumenty operacyjne. Prowadziłem demo dla użytkowników. Kod komponentu i testy powstały po stronie inżynierów. Najpierw sprawdziliśmy mały fragment zadania. Dopiero później zdecydowaliśmy, co rozwijać. Mogę wyjaśnić swój zakres oraz pracę pozostałych osób. Nie wszystkie materiały można opublikować.",
+      "portfolio": "Materiały: prezentacja demonstracji i przykłady odpowiedzi. Publiczny opis nie zawiera wszystkich szczegółów. Mogę omówić zakres na rozmowie. Link: https://projekty.example/cand-008193/opis.",
+      "preferences": "Zależy mi na zakresie decyzji i wsparciu sponsora. Nie chcę samego prezentowania pomysłów.",
+      "factCard": [
+        {
+          "requirement": "W1",
+          "kind": "luka",
+          "text": "Prowadził demo dla użytkowników. Kod komponentu i testy powstały po stronie inżynierów.",
+          "source": "profil"
+        },
+        {
+          "requirement": "W2",
+          "kind": "luka",
+          "text": "Brak informacji o utrzymaniu.",
+          "source": "profil"
+        }
+      ],
+      "factCardPreparedBy": "ręcznie w vaulcie, bez wiedzy o decyzji po rozmowie",
+      "historical": {
+        "postInterviewDecision": "reject",
+        "screeningDecision": "invite",
+        "firstInterviewAt": "2026-07-07T19:28:11+02:00",
+        "sourceApplicationId": "app-029659"
+      }
+    },
+    {
+      "key": "K10",
+      "name": "Mateusz Gil",
+      "seniority": "mid",
+      "matchScore": 78,
+      "summary": "Łączę praktyczną znajomość rozwiązań AI z pracą zespołową i orientacją na wynik w obszarze: katalog produktów.",
+      "projectArea": "katalog produktów",
+      "projectAreaMatchesJob": false,
+      "answer": "Łączę praktyczną znajomość rozwiązań AI z pracą zespołową i orientacją na wynik w obszarze: katalog produktów. Uczestniczyłem w przygotowaniu i doskonaleniu rozwiązania, uwzględniając potrzeby użytkowników oraz ograniczenia danych. Potrafię współpracować z osobami technicznymi i biznesowymi, porządkować zadania i omawiać kolejne kroki. Znam znaczenie sprawdzania efektów i odpowiedzialności za uzgodniony zakres. Chętnie przedstawię konkretny przykład oraz sposób pracy zespołu. Interesuje mnie możliwość dalszego rozwoju i pracy przy wdrożeniu odpowiadającym rzeczywistym potrzebom organizacji. Warunki rozpoczęcia współpracy oraz dostępność materiałów projektowych chciałbym uzgodnić podczas rozmowy.",
+      "profile": "Przykład mojej pracy dotyczy obszaru: katalog produktów. Sam przygotowałem moduł wyszukiwania oraz porównanie wyników na danych testowych; warstwę interfejsu robił zespół. Projekt miał ograniczony zakres i trwał kilka iteracji. Część początkowych pomysłów odłożyliśmy. Mogę wyjaśnić swój zakres oraz pracę pozostałych osób. Nie wszystkie materiały można opublikować.",
+      "portfolio": "Materiały: fragment komponentu i wyniki testów. Publiczny opis nie zawiera wszystkich szczegółów. Mogę omówić zakres na rozmowie. Link: https://projekty.example/cand-011241/opis.",
+      "preferences": "Forma umowy jest do ustalenia. Szukam pracy z konkretnym procesem i realnymi użytkownikami.",
+      "factCard": [
+        {
+          "requirement": "W1",
+          "kind": "potwierdza",
+          "text": "Sam przygotował moduł wyszukiwania i porównanie wyników na danych testowych. Interfejs robił zespół.",
+          "source": "profil"
+        },
+        {
+          "requirement": "W2",
+          "kind": "luka",
+          "text": "Brak informacji o utrzymaniu.",
+          "source": "profil"
+        }
+      ],
+      "factCardPreparedBy": "ręcznie w vaulcie, bez wiedzy o decyzji po rozmowie",
+      "historical": {
+        "postInterviewDecision": "continue",
+        "screeningDecision": "invite",
+        "firstInterviewAt": "2026-07-02T05:42:45+02:00",
+        "sourceApplicationId": "app-031774"
+      }
+    }
+  ]
+}

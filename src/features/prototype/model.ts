@@ -2,6 +2,16 @@ import { z } from "zod";
 import marketplace from "./data/marketplace.json" with { type: "json" };
 import people from "./data/people.json" with { type: "json" };
 import type { JobWithCompany } from "@/features/jobs/types";
+import {
+  isTrialCompany,
+  punktLabsCompany,
+  punktLabsJob,
+  punktLabsRecruiter,
+  TRIAL_PICK_COUNT,
+  trialCandidateKeys,
+  trialViews,
+  type TrialView,
+} from "./fact-card-trial";
 
 const id = z
   .string()
@@ -130,16 +140,28 @@ const draftSchema = z.object({
   generated: text,
   answer: text,
 });
+const trialSelectionSchema = z.object({
+  selected: z.array(id).max(TRIAL_PICK_COUNT),
+  invitedAt: z.iso.datetime().nullable(),
+});
+const factCardTrialSchema = z.object({ a: trialSelectionSchema, b: trialSelectionSchema });
+export const STATE_VERSION = 2;
+const scenarioShape = {
+  activePersonId: id.nullable(),
+  companies: z.array(companySchema).min(1).max(200),
+  jobs: z.array(jobSchema).min(1).max(1000),
+  people: z.array(personSchema).min(1).max(100),
+  applications: z.array(applicationSchema).max(2000),
+  saved: z.array(z.object({ candidateId: id, jobId: id })).max(5000),
+  drafts: z.array(draftSchema).max(1000),
+};
+/** Version 1 saves/imports predate the Punkt Labs recruitment and its A/B selections. */
+const legacyStateSchema = z.object({ version: z.literal(1), ...scenarioShape });
 export const stateSchema = z
   .object({
-    version: z.literal(1),
-    activePersonId: id.nullable(),
-    companies: z.array(companySchema).min(1).max(200),
-    jobs: z.array(jobSchema).min(1).max(1000),
-    people: z.array(personSchema).min(1).max(100),
-    applications: z.array(applicationSchema).max(2000),
-    saved: z.array(z.object({ candidateId: id, jobId: id })).max(5000),
-    drafts: z.array(draftSchema).max(1000),
+    version: z.literal(STATE_VERSION),
+    ...scenarioShape,
+    factCardTrial: factCardTrialSchema,
   })
   .superRefine((s, ctx) => {
     const problem = (message: string) => ctx.addIssue({ code: "custom", message });
@@ -193,6 +215,15 @@ export const stateSchema = z
         pairs.add(key);
       }
     }
+    for (const view of trialViews) {
+      const { selected, invitedAt } = s.factCardTrial[view];
+      if (
+        new Set(selected).size !== selected.length ||
+        selected.some((key) => !trialCandidateKeys.includes(key)) ||
+        (invitedAt !== null && selected.length !== TRIAL_PICK_COUNT)
+      )
+        problem("Invalid fact card selection");
+    }
   });
 export type State = z.infer<typeof stateSchema>;
 export type Person = State["people"][number];
@@ -213,18 +244,62 @@ export type Action =
   | { type: "stage"; applicationId: string; stage: Stage; note: string }
   | { type: "withdraw"; applicationId: string }
   | { type: "publish"; job: z.infer<typeof jobSchema> }
-  | { type: "company"; name: string; description: string };
+  | { type: "company"; name: string; description: string }
+  | { type: "trial_toggle"; view: TrialView; key: string }
+  | { type: "trial_invite"; view: TrialView }
+  | { type: "trial_reset" };
+
+function emptyTrial(): State["factCardTrial"] {
+  return {
+    a: { selected: [], invitedAt: null },
+    b: { selected: [], invitedAt: null },
+  };
+}
+/** Adds the Punkt Labs company, its historical job and recruiter when they are absent. */
+function withPunktLabs<T extends z.infer<typeof legacyStateSchema> | State>(state: T): T {
+  if (
+    !state.companies.some((x) => x.id === punktLabsCompany.id) &&
+    !state.companies.some((x) => x.slug === punktLabsCompany.slug)
+  )
+    state.companies.push(structuredClone(punktLabsCompany));
+  const hasCompany = state.companies.some((x) => x.id === punktLabsCompany.id);
+  if (
+    hasCompany &&
+    !state.jobs.some((x) => x.id === punktLabsJob.id || x.slug === punktLabsJob.slug)
+  )
+    state.jobs.push(structuredClone(punktLabsJob));
+  if (hasCompany && !state.people.some((x) => x.id === punktLabsRecruiter.id)) {
+    const operator = state.people.findIndex((x) => x.role === "operator");
+    state.people.splice(
+      operator < 0 ? state.people.length : operator,
+      0,
+      structuredClone(punktLabsRecruiter),
+    );
+  }
+  return state;
+}
+/** Parses the current version and upgrades version 1 without losing its records. */
+export function migrateState(input: unknown): State {
+  if (typeof input === "object" && input !== null && "version" in input && input.version === 1) {
+    const legacy = withPunktLabs(legacyStateSchema.parse(input));
+    return stateSchema.parse({ ...legacy, version: STATE_VERSION, factCardTrial: emptyTrial() });
+  }
+  return stateSchema.parse(input);
+}
 
 export function initialState(): State {
-  const state = stateSchema.parse({
-    version: 1,
-    activePersonId: null,
-    ...marketplace,
-    people,
-    applications: [],
-    saved: [],
-    drafts: [],
-  });
+  const state = stateSchema.parse(
+    withPunktLabs({
+      version: STATE_VERSION,
+      activePersonId: null,
+      ...structuredClone(marketplace),
+      people: structuredClone(people),
+      applications: [],
+      saved: [],
+      drafts: [],
+      factCardTrial: emptyTrial(),
+    } as State),
+  );
   const bob = state.people.find((x) => x.id === "candidate-marek")!;
   const job = state.jobs[0];
   state.applications.push({
@@ -273,6 +348,11 @@ export function transition(
   const employer = () => {
     if (person?.role !== "employer") return fail("Wybierz profil pracodawcy.");
     return person;
+  };
+  const trialRecruiter = () => {
+    const p = employer();
+    if (!isTrialCompany(p.companyId)) fail("Ta rekrutacja jest dostępna dla rekrutera Punkt Labs.");
+    return p;
   };
   if (action.type === "select_person") {
     if (action.id !== null && !s.people.some((x) => x.id === action.id))
@@ -350,6 +430,26 @@ export function transition(
       s.companies.find((x) => x.id === p.companyId)!,
       { name: shortText.parse(action.name), description: text.parse(action.description) },
     );
+  } else if (action.type === "trial_toggle" || action.type === "trial_invite") {
+    trialRecruiter();
+    const view = s.factCardTrial[action.view];
+    if (!view) return fail("Nieznany widok listy.");
+    if (view.invitedAt) fail("Zaproszenia w tym widoku zostały już wysłane.");
+    if (action.type === "trial_toggle") {
+      if (!trialCandidateKeys.includes(action.key)) fail("Nie znaleziono zgłoszenia.");
+      if (view.selected.includes(action.key))
+        view.selected = view.selected.filter((key) => key !== action.key);
+      else if (view.selected.length >= TRIAL_PICK_COUNT)
+        fail(`Możesz wybrać ${TRIAL_PICK_COUNT} osoby. Odznacz kogoś, aby wybrać inną osobę.`);
+      else view.selected.push(action.key);
+    } else {
+      if (view.selected.length !== TRIAL_PICK_COUNT)
+        fail(`Wybierz dokładnie ${TRIAL_PICK_COUNT} osoby.`);
+      view.invitedAt = now;
+    }
+  } else if (action.type === "trial_reset") {
+    trialRecruiter();
+    s.factCardTrial = emptyTrial();
   }
   return stateSchema.parse(s);
 }

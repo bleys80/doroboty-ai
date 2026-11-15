@@ -17,6 +17,14 @@ import {
 import { EmployerJobs, EmployerJobEditor, CompanyEditor } from "./employer";
 import { SettingsPage, PrivacyPage } from "./settings";
 import { CasePage } from "./case";
+import { TrialResult } from "./fact-card-trial-view";
+import { usePrototype } from "./store";
+import { currentPerson } from "./model";
+import { isTrialCompany } from "./fact-card-trial";
+function TrialResultRoute() {
+  const { state } = usePrototype();
+  return isTrialCompany(currentPerson(state)?.companyId) ? <TrialResult /> : <NotFound />;
+}
 function AppRoutes() {
   return (
     <Routes>
@@ -122,6 +130,14 @@ function AppRoutes() {
           element={
             <RequireRole role="employer">
               <ApplicationsPage employer />
+            </RequireRole>
+          }
+        />
+        <Route
+          path="app/kandydaci/wynik"
+          element={
+            <RequireRole role="employer">
+              <TrialResultRoute />
             </RequireRole>
           }
         />

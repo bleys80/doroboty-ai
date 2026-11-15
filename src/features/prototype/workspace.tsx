@@ -16,6 +16,8 @@ import { CvAttachment } from "./cv-attachment";
 import { MatchScore } from "./match-score";
 import { RecruitingApplication } from "./recruiting-application";
 import { CandidateApplication } from "./candidate-application";
+import { isTrialCompany, trialCandidate, trialFixture } from "./fact-card-trial";
+import { TrialCandidateDetail, TrialCandidates } from "./fact-card-trial-view";
 
 export function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
@@ -55,7 +57,9 @@ export function PersonPicker() {
                   person.role === "candidate"
                     ? (safeNext ?? "/app")
                     : person.role === "employer"
-                      ? "/app/oferty"
+                      ? isTrialCompany(person.companyId)
+                        ? "/app/kandydaci"
+                        : "/app/oferty"
                       : "/app/case",
                 );
               }}
@@ -101,12 +105,14 @@ export function WorkspaceHome() {
   const applications = state.applications.filter((a) =>
     candidate ? a.candidateId === person.id : a.companyId === person.companyId,
   );
+  // The prepared Punkt Labs recruitment is a read-only fixture outside state.applications.
+  const trialCount = isTrialCompany(person.companyId) ? trialFixture.candidates.length : 0;
   return (
     <>
       <PageTitle>Witaj, {person.name.split(" ")[0]}</PageTitle>
       <div className="grid gap-5 sm:grid-cols-3">
         {[
-          ["Aplikacje", applications.length],
+          ["Aplikacje", applications.length + trialCount],
           [
             candidate ? "Zapisane oferty" : "Twoje oferty",
             candidate
@@ -415,6 +421,7 @@ export function ApplicationsPage({ employer = false }: { employer?: boolean }) {
   const person = currentPerson(state)!;
   const [query, setQuery] = useState("");
   const [params] = useSearchParams();
+  if (employer && isTrialCompany(person.companyId)) return <TrialCandidates />;
   const applications = state.applications.filter(
     (x) =>
       (employer ? x.companyId === person.companyId : x.candidateId === person.id) &&
@@ -468,6 +475,8 @@ export function ApplicationDetail({ employer = false }: { employer?: boolean }) 
   const { id } = useParams();
   const { state } = usePrototype();
   const person = currentPerson(state)!;
+  if (employer && isTrialCompany(person.companyId))
+    return trialCandidate(id) ? <TrialCandidateDetail key={id} candidateKey={id!} /> : <NotFound />;
   const application = state.applications.find(
     (x) =>
       x.id === id && (employer ? x.companyId === person.companyId : x.candidateId === person.id),
