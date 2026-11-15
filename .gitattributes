@@ -1,0 +1,8 @@
+# Keep LF in the working tree on every OS. Formatting and the byte-hash
+# integrity checks (design-system:check, verify:packet) expect LF content.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.pdf binary
+*.woff2 binary

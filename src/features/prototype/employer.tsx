@@ -11,6 +11,7 @@ import {
   remoteLabels,
   seniorityLabels,
   contractLabels,
+  publicationStatusLabel,
 } from "@/features/jobs/presentation";
 import { currentPerson, jobSchema } from "./model";
 import { usePrototype } from "./store";
@@ -46,7 +47,7 @@ export function EmployerJobs() {
                   </Link>
                   <p className="mt-3 text-muted-foreground">
                     {state.applications.filter((x) => x.jobId === job.id).length} aplikacji ·{" "}
-                    {job.publicationStatus === "published" ? "Opublikowana" : "Szkic"}
+                    {publicationStatusLabel(job.publicationStatus)}
                   </p>
                 </div>
                 <Link
