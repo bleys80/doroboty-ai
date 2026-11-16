@@ -209,7 +209,9 @@
 
 .trial-selection-bar {
   position: sticky;
-  bottom: 0;
+  /* Floats above the "Powered by Netlify" badge (fixed, bottom-right, ~61px high on the free plan),
+     so the invite button stays clickable. */
+  bottom: 72px;
   z-index: 5;
   display: flex;
   flex-wrap: wrap;
